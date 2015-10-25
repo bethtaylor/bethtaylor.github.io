@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pizza Dough</title>
+</head>
+<body>
+	<h1>Pizza Dough Recipe</h1>
+	<h2>Ingredients:</h2>
+	<ul>
+		<li>1c hot water</li>        
+		<li>1 tbl yeast</li>
+		<li>2 tsp sugar</li>
+		<br>
+		<li>1 tsp salt</li>
+		<li>2 tbl olive oil</li>
+		<li>2.5 c flour</li>	
+	</ul>
+	<h2>Directions:</h2>
+	<ol>
+		<li>Mix yeast, water, and sugar. Let stand.</li>
+		<li>In mixing bowl, mix flour, oil, and salt.</li>
+		<li>Once yeast mixture has risen, mix all ingredients.</li>
+		<li>Let dough rest in bowl covered with a towel in a warm place for 30 minutes.</li>
+		<li>Roll out dough and add sauce and toppings. Bake at 400 F  for 20 minutes.</li>
+	</ol>
+	<img src="pizzapic.jpeg" />
+
+</body>
+</html>
