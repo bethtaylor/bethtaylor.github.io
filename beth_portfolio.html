@@ -2,16 +2,51 @@
 <html>
 <head>
 	<title>Beth's Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="bethstyle.css">
 </head>
 <body>
-	<h1>Welcome to Beth Taylor's Portfolio Page!</h1>
-	<h2>Bio:</h2>
-	<p>Hello, my name is Beth's Taylor and I am a aspiring computer programmer. My background is in nursing but I am currently taking a class on front-end development.</p>
-	<img src="browns_game.jpg" />
-	<h2>Here are some links to my profile pages:</h2>
-	<ul>
-		<li><a href="https://github.com/bethtaylor">Github</a></li>
-		<li><a href="https://www.linkedin.com/pub/beth-taylor/55/202/b93">Linkedin</a></li>
-	</ul>
+	<header>
+		<h1>Welcome to Beth Taylor's Portfolio Page!</h1>
+	</header>
+	<nav>
+		<ul>
+			<li>Home</li>
+			<li>Bio</li>
+		</ul>
+	</nav>
+	<main>
+		<div class="bodywrap">
+			<h2>Bio:</h2>
+			<p><img src="beth.jpg" id="beth"/>Hello, my name is Beth Taylor and I am a aspiring computer programmer. My background is in nursing but I am currently taking a class on front-end development.</p>
+			<div>
+				<h2>Here are some of my projects:</h2>
+				<div class="projects">
+					<img src="turtletictac.png" class="projectpic" />
+					<img src="pairing.png" class="projectpic" />
+				</div>	
+			</div>
+		</div>
+	</main>
+	<aside>
+		<h2>Here are some links to my profile pages:</h2>
+		<ul>
+			<li><a href="https://github.com/bethtaylor">Github</a></li>
+			<li><a href="https://www.linkedin.com/pub/beth-taylor/55/202/b93">Linkedin</a></li>
+		</ul>
+	</aside>
+	<footer>
+		<h3>Contact Me!</h3>
+		<form action="http://formspree.io/beth@rkis.cc" method="POST" id="contactform">
+		    Name: <input type="text" name="name" class="forms" id='name'/>
+		    Email Address: <input type="email" name="_replyto" class="forms" id='email' /><br>
+		    Message: <textarea name="message" id='message'></textarea> 
+		    <input type="button" value="Send" class="forms" id="sendbutton" /><br>
+		    <div class="thanks" id="thankyou">
+		    	Thank you! <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Ps-x-button.png" id="xbutton">
+		    </div>
+		</form>
+	</footer>
+
+	<script type="text/javascript" src="bethjs.js"></script>
 </body>
 </html>
