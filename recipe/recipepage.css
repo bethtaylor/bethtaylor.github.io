@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    color: #505050;
+    font-family: "Arial Black",  sans-serif;
+    background-color: #E8E8E8; 
+    border: 15px solid #E8E8E8;
+}
+#picture{
+	width: 100%;
+}
+.topdiv{
+	line-height: 170%;
+  -webkit-row-gap:      10px;
+  -webkit-column-count: 2;
+  -webkit-column-gap:   10px;
+  padding: 10px;
+}
