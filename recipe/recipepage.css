@@ -5,8 +5,16 @@ h1{
     background-color: #E8E8E8; 
     border: 15px solid #E8E8E8;
 }
-#picture{
+#image{
 	width: 100%;
+}
+.ingredients{
+  width: 50%;
+  padding-left: 100px;
+}
+.picturetd{
+  width: 50%;
+
 }
 .topdiv{
 	line-height: 170%;
