@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Page</title>
+	<link rel="stylesheet" type="text/css" href="recipepage.css">
+	<script src="jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="recipepage.js"></script>
+	<script type="text/javascript" src="recipedata.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var recipe_name = getParameterByName("recipe");
+			var recipe = recipes[recipe_name];
+			loadpage(recipe);
+		});
+	</script>
+</head>
+<body>
+	<h1 id='title'></h1>	
+	<table class='table'>
+		<tr>
+			<td class='ingredients'>
+				<div class='inside_ingred'>
+					<h2>Ingredients:</h2>
+					<ul id='ingredients_list'>
+						
+					</ul>
+				</div>
+			</td>
+			<td class='picturetd'><img src="http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/7/26/2/GT0303_pizza-dough_s4x3.jpg" class='picture' id='image'/></td>
+		</tr>
+	</table>
+	<div class='directions'>
+		<h2 class='headdir'>Directions:</h2>
+		<ol id='directions_list'>
+		
+		</ol>
+   </div>
+</body>
+</html>

@@ -1,19 +1,227 @@
 <!DOCTYPE html>
 <html>
-<title>recipe</title>
+<title>Recipe</title>
 <head>
     <link rel="stylesheet" type="text/css" href="recipe.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+    <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+    
 </head>
-<BODY>
-    <H1>Recipe Jam!</H1>
-    <div class="photos">   
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Anadama_bread_(1).jpg" width= 100%/>
-        <img src="http://www.twopeasandtheirpod.com/wp-content/uploads/2013/09/Brown-Butter-Pumpkin-Waffles-4.jpg" width= 100% />
-        <img src="http://www.house-sushi.com/wp-content/uploads/2013/12/sushi.jpg" width= 100% />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" width= 100% />
-        <img src="http://www.cornerbakerycafe.com/getmedia/63a151e3-77d3-4fd4-9d86-624f7616e9c0/Chopped-Salad_550x310?width=550&height=310&ext=.jpg" width= 100% />
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTTrT0STGzHVV798xljoRlVTzcZPqg1jiAk96BCt-H1JNlg1hSY" width= 100% />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Asian_Style_Italian_Pasta.jpg" width= 100% />
-        <img src="http://dreamatico.com/data_images/cake/cake-8.jpg" width= 100% />
-    </div>
-</BODY>
+<body>
+    <h1>Recipe Jam!</h1>
+    <h3>Too busy to cook?</h3>
+        <form>
+            <input id="data" placeholder="Search Yelp"></input>
+            <button id="go">Go</button>
+        </form>
+        <!-- <h3 id="yelpData"></h3> -->
+        <div id="yelpData"></div>
+
+    <div id="photo"> 
+        <div>
+            <a href="recipepage.html?recipe=bread">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Anadama_bread_(1).jpg" class="image" data-pictureLabel="Salmon" width= 100% />
+                <span class="nameheader">Bread</span>
+
+            </a>
+        </div>
+        <div>
+             <a href="recipepage.html?recipe=waffle">
+                <!-- <h2 class="nameheader">Brown Butter Pumpkin Waffles</h2> --> 
+                <img src="http://www.twopeasandtheirpod.com/wp-content/uploads/2013/09/Brown-Butter-Pumpkin-Waffles-4.jpg" class="image" width= 100%></img>
+                <span class="nameheader">Brown Butter<br>Pumpkin Waffles</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=sushi">
+                <img src="http://www.house-sushi.com/wp-content/uploads/2013/12/sushi.jpg" class="image" width= 100% />
+                <span class="nameheader">Sushi</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=pizza">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" class="image" width= 100% />
+                <span class="nameheader">Pizza Margherita</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=salad">
+                <img src="http://www.cornerbakerycafe.com/getmedia/63a151e3-77d3-4fd4-9d86-624f7616e9c0/Chopped-Salad_550x310?width=550&height=310&ext=.jpg" class="image" width= 100% />
+                <span class="nameheader">Chopped Salad</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=jam">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTTrT0STGzHVV798xljoRlVTzcZPqg1jiAk96BCt-H1JNlg1hSY" class="image" width= 100% />
+                <span class="nameheader">French Toast Jam</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=pasta">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Asian_Style_Italian_Pasta.jpg" class="image" width= 100% />
+                <span class="nameheader">Asian Style<br>Italian Pasta</span>
+            </a>
+        </div>
+        <div>
+            <a href="recipepage.html?recipe=chocolate_cake">
+                <img src="http://dreamatico.com/data_images/cake/cake-8.jpg" class="image" width= 100% />
+                <span class="nameheader">Cake</span>
+            </a>
+        </div>
+    </div>   
+    <!-- <div id="yelpResponse"></div> -->
+
+</body>
+    <script type="text/javascript">
+        // $(function() {
+        //     var overlay = $("#d1");
+        //     $('#d1').mouseover(function(){
+        //         $("#d1").css("background-color", "WhiteSmoke");
+        //     $("#d1").mouseover("mouseover");
+        //     });
+        //     var takeaway = $(".d2");
+        //     $("#.d2").mouseleave(function(){
+        //         $(".d2").css("background-color", "White");
+        //     $(".d2").mouseleave("mouseleave");
+        //     });
+        // });
+        $(function(){
+            var image = $(".image");
+            
+            $(".image").mouseover(function(){
+                $(this).animate({opacity: 0.4}, 200);
+                $(this).next("span").css("visibility", "visible");
+                // console.log("this", this);
+                // console.log("previousSibling", closestSpan)  
+            });
+
+            $(".image").mouseout(function(){
+                $(this).animate({opacity: 1.0}, 200).delay( 800 );
+                $(this).next("span").css("visibility", "hidden");  
+            });
+
+            // var nameheader = $("h2");
+            // $("h2").mouseover(function(){
+            //     $(this).style("color", "black");
+            // });
+            // $("h2").mouseout(function(){
+            //     $(this).style("color", "transparent");
+            // });
+
+            $("#go").click(function(event){
+                event.preventDefault();
+                $("#yelpData").empty();
+                var auth = {
+                    //
+                    // Update with your auth tokens.
+                    //
+                    consumerKey : "Ad52mmK6JCoR16xKSjLwsA",
+                    consumerSecret : "N3iLsvIdGq-mc825A5U8ySr3Swk",
+                    accessToken : "9-dvvC5RFpFJmpMXJXg0Jobl5VPLW3Ot",
+                    // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
+                    // You wouldn't actually want to expose your access token secret like this in a real application.
+                    accessTokenSecret : "66AQccnI59ezaHGMpiE-sNNz_8s",
+                    serviceProvider : {
+                        signatureMethod : "HMAC-SHA1"
+                    }
+
+                 // var searchFood;
+                 // $(function(){
+                    // $("#ajaxSearch").submit(function(){
+                //     $("#go").click(function(){
+
+                //   // console.log("searchFood", searchFood);
+
+                //         $.get("http://api.yelp.com/v2/search", function(data){
+                //         console.log("data recieved back from AJAX call", data);
+                //         //console.log("data", data);
+                //         $("#yelpData").text(data);
+                //     };
+                // });
+                // });
+                }
+            // });
+           
+            var terms = $('#data').val();
+            var near = 'San+Francisco';
+            var sort = 2;
+            var limit = 5;
+
+            var accessor = {
+                consumerSecret : auth.consumerSecret,
+                tokenSecret : auth.accessTokenSecret
+            };
+            parameters = [];
+            parameters.push(['term', terms]);
+            parameters.push(['location', near]);
+            parameters.push(['sort', sort]);
+            parameters.push(['limit', limit]);
+            parameters.push(['callback', 'cb']);
+            parameters.push(['oauth_consumer_key', auth.consumerKey]);
+            parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+            parameters.push(['oauth_token', auth.accessToken]);
+            parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+
+            var message = {
+                'action' : 'http://api.yelp.com/v2/search',
+                'method' : 'GET',
+                'parameters' : parameters
+            };
+
+            OAuth.setTimestampAndNonce(message);
+            OAuth.SignatureMethod.sign(message, accessor);
+
+            var parameterMap = OAuth.getParameterMap(message.parameters);
+            console.log(parameterMap);
+
+            $.ajax({
+                'url' : message.action,
+                'data' : parameterMap,
+                'dataType' : 'jsonp',
+                'jsonpCallback' : 'cb',
+                'success' : function(data, textStats, XMLHttpRequest) {
+                    console.log(data);
+                    //$("body").append(output);
+                    // data.forEach(function(subData){
+                    //     console.log(subData.val())
+                    // });
+                    var responseDiv = $("#yelpData");
+                    // var responseDiv2 = $("#yelpData2")
+                    for(var i=0; i<5; i++){
+
+                        // var name = document.createElement('p');
+                        // name.Text = data.businesses[i].name;
+                        // // console.log('name###################',name);
+                        // var rating = document.createElement('p');
+                        // rating.Text = data.businesses[i].rating;
+
+                        // var url = document.createElement('p');
+                        // url.Text = data.businesses[i].url;
+                        var place = '<p>' + '<h4>' + data.businesses[i].name + '</h4>' + 'Rating : ' + data.businesses[i].rating + '<br>' + '<br>' + 'For more information visit : ' + '<br>' + data.businesses[i].url + '</p>'
+                        // place.append(data.businesses[i].name);
+                        // place.append(data.businesses[i].rating);
+                        // place.append(data.businesses[i].url);
+                        // place.append('</p>');
+                        // responseDiv.append(data.businesses[i].name);
+                        // responseDiv.append(data.businesses[i].rating);
+                        // responseDiv.append(data.businesses[i].url);
+                        $('#yelpData').append(place);
+
+                        console.log(data.businesses[i].url);
+                        console.log(data.businesses[i].name);
+                        console.log(data.businesses[i].location);
+                        console.log(data.businesses[i].rating);
+                    };
+                }
+            });
+            
+           // }); 
+
+            });
+        });
+    </script>
+
+</html>
